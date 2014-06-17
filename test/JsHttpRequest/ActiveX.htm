@@ -1,0 +1,14 @@
+<script>
+function doLoad() {
+  var req = window.XMLHttpRequest? 
+    new XMLHttpRequest() : 
+    new ActiveXObject("Microsoft.XMLHTTP");
+  req.onreadystatechange = function() {
+    if (req.readyState == 4) 
+      alert('Loaded:\n'+req.responseText);
+  }
+  req.open("GET", document.location, true);
+  req.send(null);
+}
+</script>
+<input type="button" value="Show me" onclick="doLoad()">

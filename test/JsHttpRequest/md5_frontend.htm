@@ -1,0 +1,41 @@
+<script src="../../lib/JsHttpRequest/JsHttpRequest.js"></script>
+<script language="JavaScript">
+    // Function is called when we need to calculate MD5.
+    function calculate_md5() {
+        JsHttpRequest.query(
+            'md5_backend.php', // backend
+            {
+                // pass a text value 
+                'str': document.getElementById("mystr").value,  
+                // path a file to be uploaded
+                'upl': document.getElementById("myupl")
+            },
+            // Function is called when an answer arrives. 
+            function(result, errors) {
+                // Write errors to the debug div.
+                document.getElementById("debug").innerHTML = errors; 
+                // Write the answer.
+                if (result) {
+                    document.getElementById("ans").innerHTML = 
+                        'MD5("' + result["str"] + '") = ' + result["md5"];
+                }
+            },
+            false  // do not disable caching
+        );
+    }
+</script>
+
+<!-- Please note that we must specify enctype to multipart/form-data! -->
+<form method="post" enctype="multipart/form-data" onsubmit="return false">
+    Enter a text: <input type="text" id="mystr"><br>
+    ...or upload a file: <input type="file" id="myupl"><br>
+    <input type="button" value="Calculate MD5" onclick="calculate_md5()">
+</form>
+
+<div id="ans" style="border:1px solid #000; padding:2px">
+    Structured results
+</div>
+<div id="debug" style="border:1px dashed red; padding:2px">
+    Debug info
+</div>
+

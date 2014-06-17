@@ -1,0 +1,36 @@
+<script src="../../lib/JsHttpRequest/JsHttpRequest.js"></script>
+<script language="JavaScript">
+    // Function is called when we need to calculate MD5.
+    function calculate_md5() {
+        JsHttpRequest.query(
+            'md5_backend.php', // backend
+            {
+                // pass a text value 
+                'str': document.getElementById("test").value  
+            },
+            // Function is called when an answer arrives. 
+            function(result, errors) {
+                // Write errors to the debug div.
+                document.getElementById("debug").innerHTML = errors; 
+                // Write the answer.
+                document.getElementById("ans").innerHTML = 
+                    'MD5("' + result["str"] + '") = ' + result["md5"];
+            },
+            false  // do not disable caching
+        );
+    }
+</script>
+
+<!-- Please note that we must specify enctype to multipart/form-data! -->
+<form method="post" enctype="multipart/form-data" onsubmit="return false">
+    Enter a text: <input type="text" id="test" value=""><br>
+    <button id="btn_id" name="btn_id" onclick="calculate_md5()">&larr; Calculate MD5</button>
+</form>
+
+<div id="ans" style="border:1px solid #000; padding:2px">
+    Structured results
+</div>
+<div id="debug" style="border:1px dashed red; padding:2px">
+    Debug info
+</div>
+

@@ -1,0 +1,35 @@
+<script src="../../../lib/JsHttpRequest/JsHttpRequest.js"></script>
+<script language="JavaScript">
+  // Функция вызывается при нажатии на кнопку.
+  function calculate_md5() {
+    JsHttpRequest.query(
+      'md5_backend.php', // путь к backend-скрипту
+      {
+        // передаем текстовые данные 
+        'str': document.getElementById("mystr").value,  
+        // передаем файл для закачки
+        'upl': document.getElementById("myupl")
+      },
+      // Функция-обработчик, вызывается при ответе сервера. 
+      function(result, errors) {
+        // Вывести отладочные сообщения (если нужно).
+        document.getElementById("debug").innerHTML = errors; 
+        // Вывести результат работы.
+        document.getElementById("ans").innerHTML = 
+          'MD5("' + result["str"] + '") = ' + result["md5"];
+      }
+    );
+  }
+</script>
+
+<form method="post" enctype="multipart/form-data" onsubmit="return false">
+  Введите текст: <input type="text" id="mystr"><br>
+  ...или укажите файл: <input type="file" id="myupl"><br>
+  <input type="button" value="Вычислить MD5" onclick="calculate_md5()">
+</form>
+<div id="ans" style="border:1px solid #000; padding:2px">
+  Результат работы отобразится в этом блоке.
+</div>
+<div id="debug" style="border:1px dashed red; padding:2px">
+  Отладочные сообщения отобразятся в этом блоке.
+</div>
