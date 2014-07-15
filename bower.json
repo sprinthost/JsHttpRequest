@@ -1,0 +1,17 @@
+{
+  "name": "JsHttpRequest",
+  "version": "5.0.0.0",
+  "homepage": "http://dklab.ru/lib/JsHttpRequest/",
+  "authors": [
+    "Dmitry Koterov <dmitry.koterov@gmail.com>"
+  ],
+  "description": "JsHttpRequest library",
+  "keywords": [
+  ],
+  "license": "MIT",
+  "ignore": [
+    "**/.*",
+    "t",
+    "test"
+  ]
+}
