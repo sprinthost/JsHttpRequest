@@ -9,6 +9,9 @@
   "keywords": [
   ],
   "license": "MIT",
+  "main": {
+    "jshttprequest": [ "lib/JsHttpRequest/JsHttpRequest.js" ]
+  },
   "ignore": [
     "**/.*",
     "t",
