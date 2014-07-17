@@ -4,7 +4,7 @@
     "description": "JsHttpRequest library",
     "license" : "MIT",
     "require":{
-        "php":">=5.2",
+        "php":">=5.2"
     },
     "autoload": {
         "classmap": [
