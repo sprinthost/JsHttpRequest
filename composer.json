@@ -1,5 +1,5 @@
 {
-    "name": "JsHttpRequest",
+    "name": "dklab/jshttprequest",
     "type": "project",
     "description": "JsHttpRequest library",
     "license" : "MIT",
