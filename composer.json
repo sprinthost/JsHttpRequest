@@ -1,0 +1,14 @@
+{
+    "name": "JsHttpRequest",
+    "type": "project",
+    "description": "JsHttpRequest library",
+    "license" : "MIT",
+    "require":{
+        "php":">=5.2",
+    },
+    "autoload": {
+        "classmap": [
+            "lib/JsHttpRequest/JsHttpRequest.php"
+        ]
+    }
+}
